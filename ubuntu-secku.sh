@@ -24,3 +24,7 @@ read -p"Nhap host duoc phep SSH" allowssh
 echo "sshd: $allowssh" >> $filehostallow
 
 echo "ALL: ALL" >> $filehostdeny
+
+echo "Khoi dong lai may"
+sleep 3
+init 6
