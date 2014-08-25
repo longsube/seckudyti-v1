@@ -7,8 +7,8 @@ test -f $filessh.bka || cp $filessh $filessh.bka
 
 echo "##### Cau hinh cho ssh #####"
 read -p"Nhap port can thay doi:" portssh
-sed -i "s/Port */Port $portssh/g" $filessh
-sed -e "s/PermitRootLogin yes/PermitRootLogin without-password/g" /etc/ssh/sshd_config
+sed -i "s/Port 22/Port $portssh/g" $filessh
+sed -i "s/PermitRootLogin yes/PermitRootLogin without-password/g" /etc/ssh/sshd_config
 
 echo "##### Cai dat TCPD #####"
 sudo apt-get install tcpd
@@ -20,7 +20,7 @@ test -f $filehostallow.bka || cp $filehostallow $filehostallow.bka
 
 sleep 5
 echo "###### Cau hinh TCPD ######"
-read -p"Nhap host duoc phep SSH" allowssh
+read -p"Nhap host duoc phep SSH: " allowssh
 echo "sshd: $allowssh" >> $filehostallow
 
 echo "ALL: ALL" >> $filehostdeny
